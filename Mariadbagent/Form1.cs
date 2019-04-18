@@ -30,12 +30,51 @@ namespace Mariadbagent {
                 new KshDb.ColumnInfo("vol", KshDb.DataType.INT)
             };
 
+        List<KshDb.ColumnInfo> stockInfoColumnInfoList = new List<KshDb.ColumnInfo> {
+            new KshDb.ColumnInfo("quater", KshDb.DataType.CHAR, 7, true),
+            new KshDb.ColumnInfo("mechul", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("bspr", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("bspro", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("tbbpro", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("quaterpro", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("quaterprom", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("quaterpronm", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("quaterpro", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("blcto", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("minusto", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("moneyto", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("moneytom", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("moneytonm", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("seedmoney", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("busmflow", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("inveflow", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("jaemooflow", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("CAPEX", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("FCF", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("libminus", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("bsprpct", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("realprpct", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("roe", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("roa", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("minuspct", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("capretratio", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("eps", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("per", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("bps", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("pbr", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("dps", KshDb.DataType.CHAR, 15),
+            new KshDb.ColumnInfo("cashbpropct", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("paybackpct", KshDb.DataType.CHAR, 10),
+            new KshDb.ColumnInfo("stockcount", KshDb.DataType.CHAR, 15)
+        };
+
         KshDb db;
 
         private void button1_Click(object sender, EventArgs e) {
             foreach (string code in stockCodes) {
-                KshDb.TableInfo tInfo = new KshDb.TableInfo("A" + code);
-                tInfo.columnList = stockColumnInfo;
+                KshDb.TableInfo tInfo = new KshDb.TableInfo("A" + code) {
+                    columnList = stockColumnInfo
+                };
                 db.createTable(tInfo);
             }
         }
